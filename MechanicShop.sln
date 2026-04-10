@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Api", "src\MechanicShop.Api\MechanicShop.Api.csproj", "{762D1995-103B-48F5-9C27-07EE8C378865}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Application", "src\MechanicShop.Application\MechanicShop.Application.csproj", "{640C2EA2-8799-4584-A457-242D07779F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Client", "src\MechanicShop.Client\MechanicShop.Client.csproj", "{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Contracts", "src\MechanicShop.Contracts\MechanicShop.Contracts.csproj", "{50FE098A-3629-4C97-9A42-935BE8C948B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Domain", "src\MechanicShop.Domain\MechanicShop.Domain.csproj", "{BD9A42A2-0C05-48EE-B63B-4C13DE506405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Infrastructure", "src\MechanicShop.Infrastructure\MechanicShop.Infrastructure.csproj", "{A36E09CC-7D96-4D64-A5E6-A01833D54903}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{762D1995-103B-48F5-9C27-07EE8C378865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762D1995-103B-48F5-9C27-07EE8C378865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762D1995-103B-48F5-9C27-07EE8C378865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762D1995-103B-48F5-9C27-07EE8C378865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640C2EA2-8799-4584-A457-242D07779F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640C2EA2-8799-4584-A457-242D07779F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640C2EA2-8799-4584-A457-242D07779F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640C2EA2-8799-4584-A457-242D07779F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9A42A2-0C05-48EE-B63B-4C13DE506405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9A42A2-0C05-48EE-B63B-4C13DE506405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9A42A2-0C05-48EE-B63B-4C13DE506405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9A42A2-0C05-48EE-B63B-4C13DE506405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{762D1995-103B-48F5-9C27-07EE8C378865} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+		{640C2EA2-8799-4584-A457-242D07779F13} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+		{50FE098A-3629-4C97-9A42-935BE8C948B9} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+		{BD9A42A2-0C05-48EE-B63B-4C13DE506405} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+		{A36E09CC-7D96-4D64-A5E6-A01833D54903} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+	EndGlobalSection
+EndGlobal
