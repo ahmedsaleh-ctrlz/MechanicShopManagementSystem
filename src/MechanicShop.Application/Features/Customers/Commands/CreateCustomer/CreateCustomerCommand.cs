@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MechanicShop.Application.Common.IAppDbContext;
+using MechanicShop.Application.Common.Interfaces;
 using MechanicShop.Application.Features.Customers.Dtos;
 using MechanicShop.Application.Features.Customers.Mappers;
 using MechanicShop.Domain.Common.Results;
