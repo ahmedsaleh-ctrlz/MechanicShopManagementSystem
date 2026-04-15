@@ -6,13 +6,13 @@ using Microsoft.Extensions.Logging;
 
 namespace MechanicShop.Application.Common.Behaviours;
 
-public class CachingBehavoir<TRequest, TResponse>(
+public class CachingBehavior<TRequest, TResponse>(
     HybridCache cache,
-    ILogger<CachingBehavoir<TRequest, TResponse>> logger) 
+    ILogger<CachingBehavior<TRequest, TResponse>> logger) 
     : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {
     private readonly HybridCache _cache = cache;
-    private readonly ILogger<CachingBehavoir<TRequest, TResponse>> _logger = logger;
+    private readonly ILogger<CachingBehavior<TRequest, TResponse>> _logger = logger;
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken ct)
     {

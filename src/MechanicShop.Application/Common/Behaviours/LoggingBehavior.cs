@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace MechanicShop.Application.Common.Behaviours;
 
-public class LoggingBehaviour<TRequest>(ILogger<TRequest> logger, IUser user, IIdentityService identityService)
+public class LoggingBehavior<TRequest>(ILogger<TRequest> logger, IUser user, IIdentityService identityService)
     : IRequestPreProcessor<TRequest>
     where TRequest : notnull
 {
