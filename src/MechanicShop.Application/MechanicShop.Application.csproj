@@ -10,12 +10,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Identity\Queries\GenerateTokens\" />
-    <Folder Include="Features\Identity\Queries\GetUserInfo\" />
-    <Folder Include="Features\Identity\Queries\RefreshTokens\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
