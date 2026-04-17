@@ -2,13 +2,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-
 using MechanicShop.Application.Common.Interfaces;
 using MechanicShop.Application.Features.Identity;
 using MechanicShop.Application.Features.Identity.Dtos;
 using MechanicShop.Domain.Common.Results;
 using MechanicShop.Domain.Identity;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -119,7 +117,7 @@ public class TokenProvider(IConfiguration configuration, IAppDbContext context) 
         {
             AccessToken = tokenHandler.WriteToken(securityToken),
             RefreshToken = refreshToken.Token,
-            ExpiresOnUtc = expires
+            AccessTokenExpiration = expires
         };
     }
 

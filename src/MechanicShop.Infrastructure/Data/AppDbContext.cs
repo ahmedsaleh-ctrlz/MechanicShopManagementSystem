@@ -9,9 +9,7 @@ using MechanicShop.Domain.RepairTasks.Parts;
 using MechanicShop.Domain.Workorders;
 using MechanicShop.Domain.Workorders.Billing;
 using MechanicShop.Infrastructure.Identity;
-
 using MediatR;
-
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
