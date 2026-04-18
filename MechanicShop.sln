@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MechanicShop.Api", "src\Mec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MechanicShop.Application", "src\MechanicShop.Application\MechanicShop.Application.csproj", "{640C2EA2-8799-4584-A457-242D07779F13}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MechanicShop.Client", "src\MechanicShop.Client\MechanicShop.Client.csproj", "{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MechanicShop.Contracts", "src\MechanicShop.Contracts\MechanicShop.Contracts.csproj", "{50FE098A-3629-4C97-9A42-935BE8C948B9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MechanicShop.Domain", "src\MechanicShop.Domain\MechanicShop.Domain.csproj", "{BD9A42A2-0C05-48EE-B63B-4C13DE506405}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MechanicShop.Infrastructure", "src\MechanicShop.Infrastructure\MechanicShop.Infrastructure.csproj", "{A36E09CC-7D96-4D64-A5E6-A01833D54903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MechanicShop.Client", "src\MechanicShop.Client\MechanicShop.Client.csproj", "{A94D97C7-0711-B064-D76D-DF9067487B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,6 @@ Global
 		{640C2EA2-8799-4584-A457-242D07779F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{640C2EA2-8799-4584-A457-242D07779F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{640C2EA2-8799-4584-A457-242D07779F13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50FE098A-3629-4C97-9A42-935BE8C948B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,10 @@ Global
 		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A36E09CC-7D96-4D64-A5E6-A01833D54903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A94D97C7-0711-B064-D76D-DF9067487B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A94D97C7-0711-B064-D76D-DF9067487B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A94D97C7-0711-B064-D76D-DF9067487B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A94D97C7-0711-B064-D76D-DF9067487B3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,10 +54,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{762D1995-103B-48F5-9C27-07EE8C378865} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
 		{640C2EA2-8799-4584-A457-242D07779F13} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
-		{0DC829A1-F6E1-4676-BFAF-D5A17EB4FDB5} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
 		{50FE098A-3629-4C97-9A42-935BE8C948B9} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
 		{BD9A42A2-0C05-48EE-B63B-4C13DE506405} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
 		{A36E09CC-7D96-4D64-A5E6-A01833D54903} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
+		{A94D97C7-0711-B064-D76D-DF9067487B3B} = {4F957837-9FEE-4F42-88A8-EBD69DE7E0F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3811B565-DA9A-4B93-A479-8DDCA8CF7D7B}
