@@ -12,6 +12,7 @@ using MediatR;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace MechanicShop.Api.Controllers;
 
@@ -26,6 +27,7 @@ public sealed class IdentityController(ISender sender) : ApiController
     [EndpointSummary("Generates an access and refresh token for a valid user.")]
     [EndpointDescription("Authenticates a user using provided credentials and returns a JWT token pair.")]
     [EndpointName("GenerateToken")]
+    [EnableRateLimiting("SlidingWindow")]
     public async Task<IActionResult> GenerateToken([FromBody] GenerateTokenQuery request, CancellationToken ct)
     {
         var result = await sender.Send(request, ct);
