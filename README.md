@@ -1,88 +1,160 @@
-
 # Mechanic Shop Management System
 
-A modern, modular mechanic shop management system built with .NET 9 and Blazor WebAssembly (hosted).
-This repository follows a layered architecture and includes observability, API documentation, and containerization support.
+A full-stack workshop operations platform built with **.NET 9**, **ASP.NET Core**, and **hosted Blazor WebAssembly**.
+It helps teams run day-to-day service work: customer intake, repair catalog management, scheduling, work order tracking, and billing.
 
-## Key Features
-- Blazor WebAssembly client (hosted) for a responsive single-page UI
-- ASP.NET Core Web API serving client assets
-- Clean layered architecture: Client, Api, Application, Infrastructure, Contracts
-- EF Core for data access and migrations
-- API Versioning and OpenAPI (Swagger)
-- Observability: OpenTelemetry with Prometheus exporter
-- Docker support for local development and production deployments
+## Features
 
-## Projects
-- src/MechanicShop.Client — Blazor WebAssembly client
-- src/MechanicShop.Api — ASP.NET Core backend (hosts the client)
-- src/MechanicShop.Application — Business logic and DTOs
-- src/MechanicShop.Infrastructure — EF Core and persistence
-- src/MechanicShop.Contracts — Shared contracts and DTOs
+- JWT-based authentication with role-aware authorization (`Manager`, `Labor`)
+- Customer management with multi-vehicle support
+- Repair task catalog with labor cost, duration, and parts
+- Work order lifecycle management:
+  - create, search, filter, sort, and paginate
+  - assign labor and repair tasks
+  - relocate across time/spot
+  - transition state (`Pending`, `InProgress`, etc.)
+- Daily schedule view by bay/spot and by labor
+- Dashboard stats endpoint for daily operations
+- Invoice issuing, settlement, and PDF export
+- Real-time work-order refresh with SignalR
+- API versioning + OpenAPI docs (Swagger + Scalar)
+- Rate limiting, output caching, global error handling, and structured logging
+- Observability with OpenTelemetry, Prometheus exporter, Seq, and Grafana (via Docker Compose)
+- Seeded development data for instant local usage
 
-## Tech Stack
-- .NET 9
-- Blazor WebAssembly (hosted)
-- Entity Framework Core
-- OpenTelemetry + Prometheus
-- Swashbuckle (Swagger)
-- Docker for containerization
+## Architecture
+
+The solution follows a clean, layered structure:
+
+- `src/MechanicShop.Api`: ASP.NET Core host, controllers, middleware, OpenAPI, SignalR hub, and Blazor hosting
+- `src/MechanicShop.Client`: Blazor WebAssembly UI
+- `src/MechanicShop.Application`: use cases (commands/queries), orchestration, and DTO contracts
+- `src/MechanicShop.Domain`: core domain entities and business rules
+- `src/MechanicShop.Infrastructure`: EF Core, Identity/JWT, policies, persistence, background jobs, and integrations
+- `src/MechanicShop.Contracts`: request/response contracts shared across layers
+- `tests/*`: unit and test-support projects
+
+## Core Business Modules
+
+- **Identity**: token generation, refresh tokens, current-user claims
+- **Customers**: CRUD with embedded vehicle records
+- **Repair Tasks**: predefined service catalog with required parts
+- **Work Orders**: planning, assignment, state transitions, and relocation
+- **Scheduling**: day-level bay/labor schedule retrieval with timezone support
+- **Billing**: issue invoice from work order, mark paid, download PDF
+- **Dashboard**: daily operational stats
 
 ## Prerequisites
-- .NET 9 SDK
-- Docker (for container workflows)
-- A SQL-compatible database (SQL Server, PostgreSQL, etc.)
 
-## Quick start — build and run locally
-1. Clone the repo
+- .NET SDK 9.0+
+- SQL Server (local or containerized)
+- Docker Desktop (optional, for full container stack)
 
-   git clone https://github.com/ahmedsaleh-ctrlz/MechanicShopManagementSystem.git
-   cd "Mechanic Shop Management System"
+## Quick Start (Local Development)
 
-2. Restore and build
+1. Clone the repository
 
-   dotnet restore
-   dotnet build
+```bash
+git clone https://github.com/ahmedsaleh-ctrlz/MechanicShopManagementSystem.git
+cd "Mechanic Shop Management System"
+```
 
-3. Configure the database
+2. Configure connection string (if needed)
 
-   Update the connection string in src/MechanicShop.Api/appsettings.Development.json (or secrets) under `ConnectionStrings:DefaultConnection`.
+Default key:
 
-4. Run the hosted app
+`src/MechanicShop.Api/appsettings.json` -> `ConnectionStrings:DefaultConnection`
 
-   dotnet run --project src/MechanicShop.Api
+3. Restore, build, and run
 
-   The API will serve the Blazor client; check the console for the listening URL. Open /swagger for API docs.
+```bash
+dotnet restore
+dotnet build
+dotnet run --project src/MechanicShop.Api
+```
 
-## Database migrations
-Add or apply EF Core migrations from the repo root:
+4. Open the app and API docs
 
-dotnet ef migrations add InitialCreate --project src/MechanicShop.Infrastructure --startup-project src/MechanicShop.Api --output-dir Migrations
+- App/API host (default dev profile): `https://localhost:7275` or `http://localhost:5072`
+- Swagger UI: `https://localhost:7275/swagger`
+- OpenAPI JSON: `https://localhost:7275/openapi/v1.json`
+- Scalar API reference (development): `https://localhost:7275/scalar`
+
+## Seeded Demo Users (Development)
+
+The app seeds roles, users, and sample workshop data in development.
+
+- Manager:
+  - Email: `pm@localhost`
+  - Password: `pm@localhost`
+- Labor users:
+  - `john.labor@localhost`
+  - `peter.labor@localhost`
+  - `kevin.labor@localhost`
+  - `suzan.labor@localhost`
+  - Password for each: same as email
+
+Sample customers, vehicles, repair tasks, employees, and work orders are also created automatically.
+
+## API Usage Notes
+
+- Most API routes are under `api/v1/...`
+- Include bearer token in `Authorization: Bearer <token>`
+- Daily schedule endpoint expects timezone header:
+  - `X-TimeZone: <IANA or Windows timezone id>`
+
+## Docker / Container Stack
+
+Run the full stack (API + SQL Server + Seq + Prometheus + Grafana):
+
+```bash
+docker compose up --build
+```
+
+Default service ports:
+
+- API: `http://localhost:5001`
+- SQL Server: `localhost:1433`
+- Seq: `http://localhost:8081` (ingest on `:5341`)
+- Prometheus: `http://localhost:9090`
+- Grafana: `http://localhost:3000`
+
+## Database & Migrations
+
+From repository root:
+
+```bash
+dotnet ef migrations add <MigrationName> --project src/MechanicShop.Infrastructure --startup-project src/MechanicShop.Api
 dotnet ef database update --project src/MechanicShop.Infrastructure --startup-project src/MechanicShop.Api
+```
 
-## Docker
-This repository includes a Dockerfile for the API which also serves the Blazor client. Two common ways to run in Docker:
+## Testing
 
-1) Build and run image locally
+Run all tests:
 
-   docker build -t mechanicshop/api:latest -f src/MechanicShop.Api/Dockerfile .
-   docker run -e ASPNETCORE_ENVIRONMENT=Production -p 5000:80 mechanicshop/api:latest
+```bash
+dotnet test
+```
 
+Current test focus:
 
-Then run:
+- `MechanicShop.Domain.UnitTests`: domain behavior and invariants
+- `MechanicShop.Tests.Common`: shared test factories and utilities
+- Additional test projects are included for application and API-level coverage
 
-   docker-compose up --build
+CI pipeline (`.github/workflows/build-and-test.yml`) runs:
 
-## Observability
-The API includes OpenTelemetry instrumentation and a Prometheus exporter. Configure exporters and scraping endpoints in `appsettings` as needed and add Prometheus/Grafana to your monitoring stack.
+- `dotnet restore`
+- `dotnet build --configuration Release --no-restore`
+- `dotnet test --configuration Release --no-build`
 
 ## Contributing
-- Fork and create a branch for features/fixes
-- Add tests for new behavior
-- Open a Pull Request with clear description
+
+1. Create a feature branch
+2. Keep changes scoped and tested
+3. Run `dotnet build` and `dotnet test` before pushing
+4. Open a pull request with context, screenshots (if UI), and test notes
 
 ## License
-MIT — see LICENSE file or add one to the repository.
 
----
-
+MIT
